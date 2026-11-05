@@ -1,0 +1,14 @@
+{
+  "name": "aureus-capital-markets",
+  "private": true,
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "server.cjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.cjs",
+    "test": "node test.js"
+  }
+}

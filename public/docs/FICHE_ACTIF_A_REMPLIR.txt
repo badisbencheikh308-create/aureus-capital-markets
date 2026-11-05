@@ -1,0 +1,80 @@
+==================================================================
+FICHE D'ACTIF À REMPLIR
+==================================================================
+Copiez ce fichier à chaque nouvelle affaire trouvée, remplissez
+les champs, puis envoyez-le au vendeur pour validation.
+Ne publiez jamais sur le site une affaire non confirmée par le
+vendeur.
+==================================================================
+
+
+--- INFORMATIONS GÉNÉRALES ---------------------------------------
+
+Type d'actif (entourez) :
+  OBLIGATION / CREDIT / IMMOBILIER / USINE / MARQUE / ENTREPRISE (M&A)
+
+Titre / Nom de l'actif : 
+Localisation (pays, ville) : 
+Devise :  USD / EUR / XOF / AED / autre : 
+
+Prix demandé (ou fourchette) : 
+Montant de référence (CA, valeur, montant nominal) : 
+Date de disponibilité : 
+
+
+--- DÉTAILS FINANCIERS --------------------------------------------
+
+Chiffre d'affaires annuel (si entreprise) : 
+EBITDA / Bénéfice net : 
+Rendement annuel (si investissement) : 
+Échéance (si obligation/crédit) : 
+Marge / Taux d'occupation (si immobilier) : 
+Risque estimé :  AAA / AA / A / BBB / BB / B / CCC
+
+
+--- DOCUMENTS DISPONIBLES (à cocher) ------------------------------
+
+[ ] Bilan / comptes des 2-3 dernières années
+[ ] Fiche technique / photos
+[ ] Titre de propriété / acte notarié
+[ ] Prospectus d'émission (obligations)
+[ ] Term sheet / conditions
+[ ] Contrats de location (immobilier)
+[ ] Évaluation / expertise indépendante
+[ ] Mémorandum confidentiel (M&A)
+[ ] Autres : 
+
+
+--- CONTACTS ------------------------------------------------------
+
+Nom du vendeur : 
+Type (particulier / société / institution) : 
+Contact (téléphone / WhatsApp / email) : 
+La vente est-elle CONFIDENTIELLE ?  OUI / NON
+(off-market = pas de publicité sur internet)
+
+
+--- VÉRIFICATIONS À FAIRE AVANT PUBLICATION -----------------------
+
+1. [ ] Appeler le vendeur pour confirmer les informations
+2. [ ] Demander au moins UN document de preuve
+3. [ ] Vérifier que le vendeur est bien le propriétaire/mandataire
+4. [ ] Confirmer le prix et la commission avec le vendeur
+5. [ ] Remplir la fiche sur le site avec les données validées
+
+
+--- SUIVI ---------------------------------------------------------
+
+Date de découverte de l'affaire : 
+Date d'envoi aux acheteurs : 
+Nombre d'acheteurs contactés : 
+Réponses reçues : 
+STATUT :  Nouvelle / En négociation / Signée / Abandonnée
+
+
+==================================================================
+CONSEIL : ne publiez JAMAIS le nom du vendeur ou des documents
+confidentiels sur le site public. Utilisez "Mandat confidentiel"
+ou le nom du mandataire. La discrétion est LA valeur qui attire
+les vendeurs.
+==================================================================

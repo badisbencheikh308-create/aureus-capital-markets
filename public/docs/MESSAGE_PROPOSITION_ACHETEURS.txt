@@ -1,0 +1,85 @@
+==================================================================
+MESSAGE DE PROPOSITION ACHETEURS (WhatsApp)
+==================================================================
+Objectif : présenter une affaire précise à un acheteur potentiel
+Remplacer [ ] par les infos réelles de l'affaire.
+==================================================================
+
+
+--- VERSION 1 : PRÉSENTATION D'UNE AFFAIRE -----------------------
+
+Bonjour [Prénom],
+
+Je pense que cette opportunité pourrait vous intéresser :
+
+🏭 [TYPE : Usine / Marque / Immobilier / Obligation / Entreprise]
+📍 Localisation : [Pays, ville]
+💵 Prix : [prix]
+📈 [Chiffre d'affaires / Rendement] : [montant]
+📄 Documents disponibles après accord de confidentialité
+
+[1 phrase sur POURQUOI c'est une bonne affaire]
+Exemple : "Vendeur partant à la retraite, vend en dessous du
+marché. 3 ans de commandes déjà contractées."
+
+Je peux vous envoyer la fiche complète (confidentielle) si
+vous êtes intéressé(e). Souhaitez-vous que je vous la transmette ?
+
+Cordialement,
+[Nom] — Aureus RWA
+WhatsApp : [ton numéro]
+
+
+--- VERSION 2 : RELANCE APRÈS ENVOI DE LA FICHE ------------------
+
+Bonjour [Prénom],
+
+Avez-vous eu le temps de regarder la fiche que je vous ai envoyée
+[date] ? 
+
+Pour rappel, il s'agit de [type] à [lieu] au prix de [prix].
+Je me permets de vous relancer car nous avons déjà plusieurs
+acheteurs en cours d'examen, donc je vous conseille de vous
+positionner rapidement si l'affaire vous plaît.
+
+Souhaitez-vous :
+  a) Organiser une visite / appel avec le vendeur ?
+  b) Recevoir des documents complémentaires ?
+  c) Que je vous cherche une autre opportunité ?
+
+Cordialement,
+[Nom]
+
+
+--- VERSION 3 : POUR UN INVESTISSEUR FINANCIER (obligations) -----
+
+Bonjour [Prénom],
+
+Nous avons actuellement un portefeuille d'[obligations
+souveraines africaines / créances] avec un rendement annuel
+de [X]% en [USD/EUR].
+
+Pour rappel, le marché des euro-obligations africaines offre des
+rendements supérieurs au marché avec un ratio rendement/risque
+historiquement favorable (taux de recouvrement moyens > 72%).
+
+Montant minimal : [montant]
+Paiement accepté : virement bancaire, USDC, USDT.
+
+Souhaitez-vous la fiche détaillée ?
+
+Cordialement,
+[Nom] — Aureus RWA
+
+
+==================================================================
+CIRCUIT COMPLET D'UNE VENTE (à retenir)
+==================================================================
+1. Tu trouves un vendeur → tu récupères la fiche de l'actif
+2. Tu cherches un acheteur (contact + relance)
+3. L'acheteur signe un accord de confidentialité (NDA)
+4. Tu transmets les documents au vendeur
+5. L'acheteur et le vendeur négocient directement
+6. La vente se conclut (notaire / avocats)
+7. Tu reçois ta commission (1-3 % de la transaction)
+==================================================================

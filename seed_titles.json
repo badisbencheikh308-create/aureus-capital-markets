@@ -1,0 +1,860 @@
+[
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Sénégal 2032",
+    "emetteur": "État du Sénégal",
+    "pays": "Sénégal"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Corporate Dubaï Logistics 2029",
+    "emetteur": "Dubaï Logistics Group",
+    "pays": "EAU"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Énergie Kenya 2028",
+    "emetteur": "Kenya Green Energy SA",
+    "pays": "Kenya"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Commercial Alimentaire Europe",
+    "emetteur": "Pool de 34 créances",
+    "pays": "France / Italie"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Immobilier Commercial Istanbul",
+    "emetteur": "Fonds de créances RE-Turquie",
+    "pays": "Turquie"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Résidentiel Premium Dubaï",
+    "emetteur": "Dubaï Real Asset Fund SPV",
+    "pays": "EAU"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Logistique Afrique de l'Ouest",
+    "emetteur": "West Africa Logistics Fund",
+    "pays": "Côte d'Ivoire / Sénégal"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Résidences Étudiantes Malaisie",
+    "emetteur": "KL Student Living Fund",
+    "pays": "Malaisie"
+  },
+  {
+    "type": "immobilier",
+    "title": "Villa Prestige Palm Jumeirah",
+    "emetteur": "Particulier / holding",
+    "pays": "EAU"
+  },
+  {
+    "type": "immobilier",
+    "title": "Immeuble de bureaux — La Défense",
+    "emetteur": "Fonds famille",
+    "pays": "France"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Agroalimentaire — Maroc",
+    "emetteur": "Groupe industriel",
+    "pays": "Maroc"
+  },
+  {
+    "type": "marque",
+    "title": "Marque de Mode Premium — Vente",
+    "emetteur": "Fondateur",
+    "pays": "France"
+  },
+  {
+    "type": "ma",
+    "title": "Entreprise Logistique — Recherche acquéreur",
+    "emetteur": "Famille fondatrice",
+    "pays": "Sénégal / Côte d'Ivoire"
+  },
+  {
+    "type": "ma",
+    "title": "Clinique Vétérinaire — Recherche acquéreur",
+    "emetteur": "Groupe fondateur",
+    "pays": "Espagne"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Pétrole Brut Brent — Livraison",
+    "emetteur": "Trader international / négoce",
+    "pays": "International (Brent)"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Gaz Naturel LNG — Asie",
+    "emetteur": "Fournisseur LNG",
+    "pays": "Asie (JKM)"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Blé Dur — 10 000 tonnes",
+    "emetteur": "Négociant céréalier",
+    "pays": "France / Mer Noire"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Maïs — Afrique de l'Ouest",
+    "emetteur": "Coopérative export",
+    "pays": "Sénégal / Côte d'Ivoire"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Or & Lingots — 100 kg",
+    "emetteur": "Affineur agréé LBMA",
+    "pays": "Suisse"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Électricité — PPA Industriel",
+    "emetteur": "Producteur indépendant",
+    "pays": "Europe (France / Espagne)"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Gazole 0,1 % — Ouest Afrique",
+    "emetteur": "Négociant pétrolier",
+    "pays": "Sénégal / Côte d'Ivoire"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Café Arabica — Afrique de l'Est",
+    "emetteur": "Exportateur / coopérative",
+    "pays": "Éthiopie / Kenya"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Cacao — Côte d'Ivoire",
+    "emetteur": "Coopérative de planteurs",
+    "pays": "Côte d'Ivoire"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Cuivre Concentré — Afrique Centrale",
+    "emetteur": "Mineur / trader",
+    "pays": "RDC / Zambie"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Riz Parfumé — 5 000 t",
+    "emetteur": "Négociant asiatique",
+    "pays": "Thaïlande / Vietnam"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Sucre Brut — Brésil",
+    "emetteur": "Moulin sucrier / export",
+    "pays": "Brésil"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Engrais Urée 46 % — Afrique",
+    "emetteur": "Importateur / distributeur",
+    "pays": "Dubaï / Afrique de l'Ouest"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Qatar 2031",
+    "emetteur": "État du Qatar",
+    "pays": "Qatar"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Singapour 2030",
+    "emetteur": "République de Singapour",
+    "pays": "Singapour"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Oman 2029",
+    "emetteur": "Sultanat d'Oman",
+    "pays": "Oman"
+  },
+  {
+    "type": "obligation",
+    "title": "Trésor Américain US Treasury 10 ans",
+    "emetteur": "Gouvernement des États-Unis",
+    "pays": "États-Unis"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Corporate Dubaï — Énergie 2028",
+    "emetteur": "Conglomérat énergétique de Dubaï",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Côte d'Ivoire 2033",
+    "emetteur": "République de Côte d'Ivoire",
+    "pays": "Côte d'Ivoire"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Kenya 2033",
+    "emetteur": "République du Kenya",
+    "pays": "Kenya"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine France (OAT) 2034",
+    "emetteur": "République française",
+    "pays": "France"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Commercial Chine — Pool Export",
+    "emetteur": "Pool de créances export",
+    "pays": "Chine"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Maritime Singapour — Pool",
+    "emetteur": "Fonds de créances maritimes",
+    "pays": "Singapour"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Commercial Afrique de l'Est",
+    "emetteur": "Pool de créances agro",
+    "pays": "Tanzanie / Ouganda / Rwanda"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Logistique Chine — Distribution",
+    "emetteur": "China Logistics Fund",
+    "pays": "Chine (Shanghai / Chengdu)"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds REIT Singapour — Bureaux",
+    "emetteur": "SG Office REIT",
+    "pays": "Singapour"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Énergie Verte Qatar",
+    "emetteur": "Qatar Green Energy Fund",
+    "pays": "Qatar"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Immobilier Dubaï — Marina",
+    "emetteur": "DME Real Estate Fund",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "immobilier",
+    "title": "Villa de Luxe — Katara Doha",
+    "emetteur": "Holding privée",
+    "pays": "Qatar"
+  },
+  {
+    "type": "immobilier",
+    "title": "Appartement Marina Dubaï — Vente",
+    "emetteur": "Particulier",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "immobilier",
+    "title": "Résidence Mascate — Vente",
+    "emetteur": "Famille omanaise",
+    "pays": "Oman"
+  },
+  {
+    "type": "immobilier",
+    "title": "Penthouse Riviera Singapour",
+    "emetteur": "Famille investisseuse",
+    "pays": "Singapour"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Électronique — Chine (Shenzhen)",
+    "emetteur": "Groupe industriel chinois",
+    "pays": "Chine"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Agroalimentaire — Dubaï JAFZA",
+    "emetteur": "Groupe agroalimentaire",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "marque",
+    "title": "Marque Mode Africaine — Cession",
+    "emetteur": "Fondateur",
+    "pays": "Sénégal / Côte d'Ivoire"
+  },
+  {
+    "type": "ma",
+    "title": "Entreprise Logistique Chine-Europe — Cession",
+    "emetteur": "Famille fondatrice",
+    "pays": "Chine / Allemagne"
+  },
+  {
+    "type": "ma",
+    "title": "Holding Technologique Singapour — Partenariat",
+    "emetteur": "Fondateurs",
+    "pays": "Singapour"
+  },
+  {
+    "type": "ma",
+    "title": "Clinique Médicale — Qatar (partenariat)",
+    "emetteur": "Groupe médical du Golfe",
+    "pays": "Qatar"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Gaz Naturel Qatar — 5 ans",
+    "emetteur": "Producteur gazier qatari",
+    "pays": "Qatar"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Riz — Thaïlande 15 000 t",
+    "emetteur": "Négociant thaïlandais",
+    "pays": "Thaïlande"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Huile de Palme — Malaisie",
+    "emetteur": "Exportateur malaisien",
+    "pays": "Malaisie"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Poulet congelé — Brésil",
+    "emetteur": "Abattoir exportateur",
+    "pays": "Brésil"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Minerai de Fer — Australie",
+    "emetteur": "Mineur australien",
+    "pays": "Australie"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Agroalimentaire — Algérie (Oran)",
+    "emetteur": "Groupe familial algérien",
+    "pays": "Algérie"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Textile — Tunisie (Monastir)",
+    "emetteur": "Groupe textile exportateur",
+    "pays": "Tunisie"
+  },
+  {
+    "type": "usine",
+    "title": "Unité de Production Boissons — Côte d'Ivoire",
+    "emetteur": "PME industrielle",
+    "pays": "Côte d'Ivoire"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Métallurgique — Turquie (Istanbul)",
+    "emetteur": "Groupe sidérurgique",
+    "pays": "Turquie"
+  },
+  {
+    "type": "marque",
+    "title": "Marque Cosmétique Bio — Cession",
+    "emetteur": "Fondatrice",
+    "pays": "France / Afrique"
+  },
+  {
+    "type": "marque",
+    "title": "Chaîne de Restaurants — Cession (8 points de vente)",
+    "emetteur": "Fondateur",
+    "pays": "Sénégal"
+  },
+  {
+    "type": "marque",
+    "title": "Marque Sportswear — Internationale",
+    "emetteur": "Entrepreneurs",
+    "pays": "USA / Europe"
+  },
+  {
+    "type": "ma",
+    "title": "Restaurant Gastronomique — Recherche acquéreur",
+    "emetteur": "Chef fondateur",
+    "pays": "France (Paris)"
+  },
+  {
+    "type": "ma",
+    "title": "Hôtel Boutique — Recherche partenariat",
+    "emetteur": "Groupe hôtelier",
+    "pays": "Maroc (Marrakech)"
+  },
+  {
+    "type": "ma",
+    "title": "Entreprise de Transport Routier — Afrique de l'Ouest",
+    "emetteur": "Famille fondatrice",
+    "pays": "Sénégal / Mali"
+  },
+  {
+    "type": "ma",
+    "title": "Startup Fintech — Levée de fonds",
+    "emetteur": "Fondateurs",
+    "pays": "France"
+  },
+  {
+    "type": "ma",
+    "title": "PME Agroexport — Recherche acquéreur",
+    "emetteur": "Fondateur",
+    "pays": "Égypte"
+  },
+  {
+    "type": "usine",
+    "title": "Boulangerie Industrielle — Dubaï",
+    "emetteur": "Groupe alimentaire",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "marque",
+    "title": "Marque de Café — Chaîne internationale",
+    "emetteur": "Fondateurs",
+    "pays": "Italie / UAE"
+  },
+  {
+    "type": "ma",
+    "title": "Startup Fintech Paiements — Levée de fonds",
+    "emetteur": "Fondateurs",
+    "pays": "Sénégal"
+  },
+  {
+    "type": "ma",
+    "title": "EdTech Francophone — Levée de fonds",
+    "emetteur": "Fondateurs",
+    "pays": "France"
+  },
+  {
+    "type": "ma",
+    "title": "Agence Digitale — Recherche acquéreur",
+    "emetteur": "Fondateurs",
+    "pays": "Maroc"
+  },
+  {
+    "type": "ma",
+    "title": "Startup Santé Télémédecine — Partenariat",
+    "emetteur": "Fondateurs",
+    "pays": "Côte d'Ivoire"
+  },
+  {
+    "type": "ma",
+    "title": "E-commerce Mode — Recherche acquéreur",
+    "emetteur": "Fondatrice",
+    "pays": "Égypte"
+  },
+  {
+    "type": "ma",
+    "title": "FoodTech — Recherche partenaire industriel",
+    "emetteur": "Fondateurs",
+    "pays": "Turquie"
+  },
+  {
+    "type": "ma",
+    "title": "LogTech — Fusion avec acteur logistique",
+    "emetteur": "Fondateurs",
+    "pays": "Singapour"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Rwanda 2034",
+    "emetteur": "République du Rwanda",
+    "pays": "Rwanda"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Ghana 2034",
+    "emetteur": "République du Ghana",
+    "pays": "Ghana"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Nigeria 2033",
+    "emetteur": "République fédérale du Nigeria",
+    "pays": "Nigeria"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Bénin 2032",
+    "emetteur": "République du Bénin",
+    "pays": "Bénin"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Égypte 2034",
+    "emetteur": "République arabe d'Égypte",
+    "pays": "Égypte"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Turquie 2034",
+    "emetteur": "République de Turquie",
+    "pays": "Turquie"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Corporate Telecom Maroc 2029",
+    "emetteur": "Opérateur télécoms marocain",
+    "pays": "Maroc"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Corporate BHP 2031",
+    "emetteur": "BHP Group",
+    "pays": "Australie"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Corporate Aramco 2030",
+    "emetteur": "Saudi Aramco",
+    "pays": "Arabie saoudite"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Supranationale AfDB 2030",
+    "emetteur": "Banque africaine de développement",
+    "pays": "Supranational (Afrique)"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Corporate Emirates NBD 2028",
+    "emetteur": "Emirates NBD Bank",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "obligation",
+    "title": "Obligation Souveraine Afrique du Sud 2032",
+    "emetteur": "République d'Afrique du Sud",
+    "pays": "Afrique du Sud"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Commercial Café & Cacao — Cameroun",
+    "emetteur": "Pool de créances agro",
+    "pays": "Cameroun / Côte d'Ivoire"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Factoring PME — Dubaï",
+    "emetteur": "Fonds de factoring",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Commercial Textile — Asie",
+    "emetteur": "Pool de créances export",
+    "pays": "Bangladesh / Vietnam"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Import Automobile — Afrique de l'Ouest",
+    "emetteur": "Pool de créances import",
+    "pays": "Sénégal / Côte d'Ivoire / Bénin"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Construction — RDC (Kinshasa)",
+    "emetteur": "Fonds de créances BTP",
+    "pays": "RDC"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Commercial Pêche — Mauritanie",
+    "emetteur": "Pool de créances halieutiques",
+    "pays": "Mauritanie"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit DPP Pétrolier — Congo",
+    "emetteur": "Fonds de créances énergie",
+    "pays": "Congo-Brazzaville"
+  },
+  {
+    "type": "credit",
+    "title": "Crédit Microfinance — Ouganda",
+    "emetteur": "Fonds de microfinance",
+    "pays": "Ouganda"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Bureaux Green — Francfort",
+    "emetteur": "Frankfurt Green Office Fund",
+    "pays": "Allemagne"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Data Centers — Amsterdam",
+    "emetteur": "Euro Datacenter Fund",
+    "pays": "Pays-Bas"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Logistique GCC — Distribution",
+    "emetteur": "GCC Logistics Real Fund",
+    "pays": "EAU / Arabie saoudite"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Résidentiel — Riyad",
+    "emetteur": "Riyadh Living Fund",
+    "pays": "Arabie saoudite"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Retail — Lagos",
+    "emetteur": "Lagos Retail Fund",
+    "pays": "Nigeria"
+  },
+  {
+    "type": "hedgefund",
+    "title": "Fonds Hôtelier — Bali",
+    "emetteur": "Bali Hospitality Fund",
+    "pays": "Indonésie"
+  },
+  {
+    "type": "immobilier",
+    "title": "Villa avec Piscine — Marrakech",
+    "emetteur": "Particulier",
+    "pays": "Maroc"
+  },
+  {
+    "type": "immobilier",
+    "title": "Appartement Vue Mer — Nice",
+    "emetteur": "Famille investisseuse",
+    "pays": "France"
+  },
+  {
+    "type": "immobilier",
+    "title": "Duplex — Abidjan Riviera",
+    "emetteur": "Particulier",
+    "pays": "Côte d'Ivoire"
+  },
+  {
+    "type": "immobilier",
+    "title": "Ferme Viticole — Toscane",
+    "emetteur": "Famille toscane",
+    "pays": "Italie"
+  },
+  {
+    "type": "immobilier",
+    "title": "Tour de Bureaux — Casablanca",
+    "emetteur": "Fonds immobilier",
+    "pays": "Maroc"
+  },
+  {
+    "type": "immobilier",
+    "title": "Maison de Plage — Dakar Almadies",
+    "emetteur": "Particulier",
+    "pays": "Sénégal"
+  },
+  {
+    "type": "immobilier",
+    "title": "Appartement Investissement — Lisbonne",
+    "emetteur": "Fonds famille",
+    "pays": "Portugal"
+  },
+  {
+    "type": "immobilier",
+    "title": "Complexe Résidentiel — Kigali",
+    "emetteur": "Promoteur",
+    "pays": "Rwanda"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Textile — Bangladesh (Dacca)",
+    "emetteur": "Groupe textile exportateur",
+    "pays": "Bangladesh"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Plasturgie — Vietnam",
+    "emetteur": "Groupe industriel",
+    "pays": "Vietnam"
+  },
+  {
+    "type": "usine",
+    "title": "Unité Agro — Éthiopie (Addis)",
+    "emetteur": "PME industrielle",
+    "pays": "Éthiopie"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Pharmaceutique — Jordanie",
+    "emetteur": "Groupe pharmaceutique",
+    "pays": "Jordanie"
+  },
+  {
+    "type": "usine",
+    "title": "Usine Emballage — Johannesburg",
+    "emetteur": "Groupe emballage",
+    "pays": "Afrique du Sud"
+  },
+  {
+    "type": "marque",
+    "title": "Marque K-Beauty — Cosmétiques",
+    "emetteur": "Fondateurs",
+    "pays": "Corée du Sud"
+  },
+  {
+    "type": "marque",
+    "title": "Marque Hôtellerie Boutique — Bali",
+    "emetteur": "Fondateurs",
+    "pays": "Indonésie"
+  },
+  {
+    "type": "marque",
+    "title": "Marque Snacks — Afrique de l'Ouest",
+    "emetteur": "Fondatrice",
+    "pays": "Nigeria / Ghana"
+  },
+  {
+    "type": "marque",
+    "title": "Marque Parfums — Golfe",
+    "emetteur": "Fondateur",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "ma",
+    "title": "SaaS RH — Recherche acquéreur",
+    "emetteur": "Fondateurs",
+    "pays": "France"
+  },
+  {
+    "type": "ma",
+    "title": "Startup AgriTech — Levée de fonds",
+    "emetteur": "Fondateurs",
+    "pays": "Nigeria"
+  },
+  {
+    "type": "ma",
+    "title": "Compagnie de Bus — Rapprochement",
+    "emetteur": "Groupe fondateur",
+    "pays": "Kenya"
+  },
+  {
+    "type": "ma",
+    "title": "Réseau de Cliniques Dentaires — Recherche acquéreur",
+    "emetteur": "Groupe médical",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "ma",
+    "title": "Startup CleanTech — Levée de fonds",
+    "emetteur": "Fondateurs",
+    "pays": "Singapour"
+  },
+  {
+    "type": "ma",
+    "title": "Distributeur Pharmaceutique — Partenariat",
+    "emetteur": "Groupe familial",
+    "pays": "Côte d'Ivoire"
+  },
+  {
+    "type": "ma",
+    "title": "Plateforme E-learning — Fusion",
+    "emetteur": "Fondateurs",
+    "pays": "Inde"
+  },
+  {
+    "type": "ma",
+    "title": "Chocolaterie Artisanale — Vente",
+    "emetteur": "Maître artisan",
+    "pays": "Belgique"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Coton — Afrique de l'Ouest",
+    "emetteur": "Exportateur / coopérative",
+    "pays": "Burkina Faso / Mali"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Huile d'Olive — Tunisie",
+    "emetteur": "Coopérative / exportateur",
+    "pays": "Tunisie"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Acier — Turquie",
+    "emetteur": "Producteur / exportateur",
+    "pays": "Turquie"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Bananes — Équateur",
+    "emetteur": "Exportateur équatorien",
+    "pays": "Équateur"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Thé — Kenya",
+    "emetteur": "Coopérative de planteurs",
+    "pays": "Kenya"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Noix de Cajou — Côte d'Ivoire",
+    "emetteur": "Coopérative / exportateur",
+    "pays": "Côte d'Ivoire"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Aluminium — Canada",
+    "emetteur": "Fonderie exportatrice",
+    "pays": "Canada"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Urée — Algérie",
+    "emetteur": "Producteur / distributeur",
+    "pays": "Algérie"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat GNL — Algérie",
+    "emetteur": "Producteur gazier",
+    "pays": "Algérie"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Sésame — Soudan",
+    "emetteur": "Exportateur",
+    "pays": "Soudan"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Café Robusta — Vietnam",
+    "emetteur": "Exportateur vietnamien",
+    "pays": "Vietnam"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Or — Dubaï (lingots)",
+    "emetteur": "Affineur / courtier",
+    "pays": "EAU (Dubaï)"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Diamants — Angola",
+    "emetteur": "Mineur / courtier",
+    "pays": "Angola"
+  },
+  {
+    "type": "commodity",
+    "title": "Contrat Charbon Thermique — Indonésie",
+    "emetteur": "Mineur / trader",
+    "pays": "Indonésie"
+  }
+]

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64">
+  <defs>
+    <linearGradient id="navy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12294d"/>
+      <stop offset="1" stop-color="#0a1a33"/>
+    </linearGradient>
+  </defs>
+  <!-- Marque : deux piliers + architrave = institution / porte de la confiance -->
+  <g>
+    <rect x="6" y="20" width="6" height="26" fill="#0a1a33"/>
+    <rect x="42" y="20" width="6" height="26" fill="#0a1a33"/>
+    <rect x="0" y="14" width="54" height="6" fill="#12294d"/>
+    <rect x="12" y="20" width="30" height="5" fill="none" stroke="#7d93b8" stroke-width="1.5"/>
+    <rect x="12" y="30" width="30" height="2" fill="#c3cfdf"/>
+  </g>
+  <text x="66" y="32" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="bold" fill="#0a1a33" letter-spacing="2">AUREUS</text>
+  <text x="66" y="48" font-family="Segoe UI, Arial, sans-serif" font-size="9" fill="#5c6b7f" letter-spacing="4">CAPITAL MARKETS</text>
+</svg>

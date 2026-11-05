@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: aureus-capital-markets
+    env: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: node server.cjs
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true

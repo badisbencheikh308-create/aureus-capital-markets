@@ -1,0 +1,415 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Markets — Administration</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    body { padding: 0; }
+    .admin-nav { background: var(--card2); border-bottom: 1px solid var(--line); padding: 0 0 0 24px; }
+    .admin-nav a { display: inline-block; padding: 16px 18px; color: var(--muted); font-weight: 600; font-size: .92rem; }
+    .admin-nav a.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+    .admin-nav a.logout { color: var(--red); float: right; margin-right: 24px; }
+    .admin-body { padding: 30px 24px 60px; max-width: 1200px; margin: 0 auto; }
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 14px; margin-bottom: 24px; }
+    .stat-mini { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+    .stat-mini .n { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
+    .stat-mini .l { color: var(--muted); font-size: .82rem; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+    table.adm { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+    table.adm th { text-align: left; padding: 12px; color: var(--muted); font-size: .78rem; text-transform: uppercase; border-bottom: 1px solid var(--line); }
+    table.adm td { padding: 12px; border-bottom: 1px solid var(--line); font-size: .88rem; vertical-align: top; }
+    table.adm tr:last-child td { border-bottom: none; }
+    .badge-s { font-size: .72rem; padding: 3px 9px; border-radius: 50px; font-weight: 700; }
+    .b-publie { background: rgba(52,211,153,.15); color: var(--green); }
+    .b-brouillon { background: rgba(148,163,184,.2); color: #94a3b8; }
+    .b-attente { background: rgba(232,182,76,.15); color: var(--accent); }
+    .b-fait { background: rgba(96,165,250,.15); color: var(--blue); }
+    .btn-sm { padding: 5px 10px; font-size: .78rem; border-radius: 8px; }
+    .edit-form { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+    .edit-form label { display: block; color: var(--muted); font-size: .8rem; margin: 12px 0 4px; }
+    .edit-form input, .edit-form select, .edit-form textarea { width: 100%; background: var(--bg2); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; color: var(--text); font-family: inherit; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+    .msg { padding: 12px 14px; border-radius: 10px; margin-bottom: 14px; font-size: .9rem; }
+    .msg.ok { background: rgba(52,211,153,.12); color: var(--green); }
+    .msg.err { background: rgba(248,113,113,.12); color: var(--red); }
+    .hidden { display: none; }
+    @media (max-width:700px){ .grid2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="admin-nav">
+    <strong style="color:var(--accent);padding:16px 18px;display:inline-block">Aureus Admin</strong>
+    <a href="#" data-tab="overview" class="active">Tableau de bord</a>
+    <a href="#" data-tab="assets">Offres</a>
+    <a href="#" data-tab="submissions">Soumissions</a>
+    <a href="#" data-tab="subscriptions">Abonnements</a>
+    <a href="#" data-tab="fees">Frais</a>
+    <a href="#" data-tab="kyc">KYC</a>
+    <a href="#" data-tab="cryptoloans">Prêts Crypto</a>
+    <a href="#" data-tab="contacts">Contacts</a>
+    <a href="#" data-tab="messages">Messages</a>
+    <a href="#" data-tab="users">Membres</a>
+    <a href="#" class="logout" onclick="logout()">Déconnexion</a>
+  </div>
+
+  <div id="loginBox" class="admin-body hidden">
+    <div class="edit-form" style="max-width:420px;margin:60px auto">
+      <h3 style="color:var(--accent)">Connexion administrateur</h3>
+      <p id="loginErr" class="msg err hidden"></p>
+      <label>Email</label><input type="text" id="loginEmail" value="admin@aureusrwa.com">
+      <label>Mot de passe</label><input type="password" id="loginPass" value="">
+      <button class="btn btn-primary full" style="margin-top:18px" onclick="doLogin()">Se connecter</button>
+    </div>
+  </div>
+
+  <div id="appBox" class="admin-body hidden">
+    <div id="tab-overview"></div>
+    <div id="tab-assets" class="hidden"></div>
+    <div id="tab-submissions" class="hidden"></div>
+    <div id="tab-subscriptions" class="hidden"></div>
+    <div id="tab-fees" class="hidden"></div>
+    <div id="tab-kyc" class="hidden"></div>
+    <div id="tab-cryptoloans" class="hidden"></div>
+    <div id="tab-contacts" class="hidden"></div>
+    <div id="tab-messages" class="hidden"></div>
+    <div id="tab-users" class="hidden"></div>
+  </div>
+
+  <script src="/data/assets.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    let tabs = ["overview", "assets", "submissions", "subscriptions", "fees", "kyc", "cryptoloans", "contacts", "messages", "users"];
+
+    async function api(path, method, body) {
+      const r = await fetch("/admin/api/" + path, {
+        method: method || "GET",
+        headers: { "Content-Type": "application/json" },
+        body: body ? JSON.stringify(body) : undefined
+      });
+      return r.json();
+    }
+
+    async function init() {
+      const chk = await api("check");
+      if (chk.ok && chk.isAdmin) {
+        $("loginBox").classList.add("hidden");
+        $("appBox").classList.remove("hidden");
+        showTab("overview");
+      } else {
+        $("appBox").classList.add("hidden");
+        $("loginBox").classList.remove("hidden");
+      }
+    }
+
+    async function doLogin() {
+      $("loginErr").classList.add("hidden");
+      const r = await api("login", "POST", { email: $("loginEmail").value, password: $("loginPass").value });
+      if (r.ok) { location.reload(); }
+      else { $("loginErr").classList.remove("hidden"); $("loginErr").textContent = r.error || "Erreur"; }
+    }
+    async function logout() { await api("logout", "POST", {}); location.reload(); }
+
+    document.querySelectorAll(".admin-nav a[data-tab]").forEach((a) => {
+      a.addEventListener("click", (e) => { e.preventDefault(); showTab(a.dataset.tab); });
+    });
+
+    function showTab(t) {
+      tabs.forEach((x) => {
+        const el = $("tab-" + x);
+        el.classList.toggle("hidden", x !== t);
+        const nav = document.querySelector(`.admin-nav a[data-tab="${x}"]`);
+        if (nav) nav.classList.toggle("active", x === t);
+      });
+      if (t === "overview") renderOverview();
+      if (t === "assets") renderAssets();
+      if (t === "submissions") renderSubmissions();
+      if (t === "subscriptions") renderSubscriptions();
+      if (t === "fees") renderFees();
+      if (t === "kyc") renderKyc();
+      if (t === "cryptoloans") renderCryptoLoansAdmin();
+      if (t === "contacts") renderContacts();
+      if (t === "messages") renderMsgList();
+      if (t === "users") renderUsers();
+    }
+
+    async function renderOverview() {
+      const o = await api("overview");
+      $("tab-overview").innerHTML = `
+        <div class="stat-row">
+          <div class="stat-mini"><div class="n">${o.assets}</div><div class="l">Offres publiées</div></div>
+          <div class="stat-mini"><div class="n">${o.submissions}</div><div class="l">Soumissions en attente</div></div>
+          <div class="stat-mini"><div class="n">${o.contacts}</div><div class="l">Demandes de contact</div></div>
+          <div class="stat-mini"><div class="n">${o.users}</div><div class="l">Membres inscrits</div></div>
+          <div class="stat-mini"><div class="n">${o.crypto_loans || 0}</div><div class="l">Prêts crypto</div></div>
+        </div>
+        <div class="edit-form">
+          <h3 style="color:var(--accent)">Bienvenue dans votre panneau</h3>
+          <p class="muted small">Gérez vos offres, validez les soumissions des vendeurs et lisez les demandes des acheteurs.</p>
+          <button class="btn btn-primary" style="margin-top:14px" onclick="showTab('assets')">Gérer les offres</button>
+        </div>`;
+    }
+
+    const TYPES = { obligation: "Obligation", credit: "Crédit", hedgefund: "Fonds Immo", immobilier: "Immobilier", usine: "Usine", marque: "Marque", ma: "M&A", commodity: "Matières Premières", financement_dette: "Financement Dette" };
+    const badgeStatut = (s) => `<span class="badge-s b-${s}">${s}</span>`;
+
+    function renderAssets() {
+      const box = $("tab-assets");
+      box.innerHTML = `
+        <div class="toolbar">
+          <h3 style="color:var(--accent)">Gérer les offres</h3>
+          <button class="btn btn-primary" onclick="openAssetForm(null)">+ Nouvelle offre</button>
+        </div>
+        <div id="assetFormWrap"></div>
+        <table class="adm"><thead><tr><th>ID</th><th>Type</th><th>Titre</th><th>Pays</th><th>Montant</th><th>Rend.</th><th>Statut</th><th>Vérif.</th><th>Actions</th></tr></thead><tbody id="assetRows"></tbody></table>`;
+      loadAssets();
+    }
+    async function loadAssets() {
+      const rows = await api("assets");
+      $("assetRows").innerHTML = rows.map((a) => `
+        <tr>
+          <td>${a.id}</td>
+          <td>${TYPES[a.type] || a.type}</td>
+          <td>${a.title}</td>
+          <td>${a.pays}</td>
+          <td>${a.montant ? a.montant.toLocaleString("fr-FR") : "-"} ${a.devise || ""}</td>
+          <td>${a.rendement ? a.rendement + "%" : "-"}</td>
+          <td>${badgeStatut(a.statut)}</td>
+          <td>${a.verifie ? '<span style="color:var(--green);font-weight:600">✓</span>' : "—"}</td>
+          <td>
+            <button class="btn btn-ghost btn-sm" onclick='openAssetForm(${JSON.stringify(a).replace(/'/g, "&#39;")})'>Modifier</button>
+            <button class="btn btn-ghost btn-sm" style="color:var(--red)" onclick="delAsset(${a.id})">Suppr.</button>
+            <button class="btn btn-ghost btn-sm" style="color:${a.a_la_une ? "var(--gold,#c9a227)" : "inherit"}" onclick="toggleUne(${a.id},${a.a_la_une ? 0 : 1})">${a.a_la_une ? "★ À la une" : "☆ Mettre à la une"}</button>
+          </td>
+        </tr>`).join("") || `<tr><td colspan="9" class="muted">Aucune offre.</td></tr>`;
+    }
+    async function toggleUne(id, value) { await api("asset", "POST", { id, action: "une", value }); loadAssets(); }
+
+    function openAssetForm(a) {
+      const w = $("assetFormWrap");
+      const v = a || { type: "obligation", title: "", emetteur: "", pays: "", devise: "USD", montant: "", rendement: "", maturite: "", risque: "", token: "", description: "", vendeur: "", minimum: "", statut: "publie", documents: [] };
+      w.innerHTML = `
+        <div class="edit-form">
+          <div style="display:flex;justify-content:space-between"><h3 style="color:var(--accent)">${a ? "Modifier l'offre #" + a.id : "Nouvelle offre"}</h3><button class="modal-close" onclick="closeForm()">&times;</button></div>
+          <div class="grid2">
+            <div><label>Type</label><select id="afType">${Object.entries(TYPES).map(([k, l]) => `<option ${v.type === k ? "selected" : ""} value="${k}">${l}</option>`).join("")}</select></div>
+            <div><label>Statut</label><select id="afStatut"><option ${v.statut === "publie" ? "selected" : ""}>publie</option><option ${v.statut === "brouillon" ? "selected" : ""}>brouillon</option></select></div>
+            <div><label>Documents vérifiés</label><select id="afVerifie"><option value="1" ${v.verifie ? "selected" : ""}>Vérifié</option><option value="0" ${!v.verifie ? "selected" : ""}>Non vérifié</option></select></div>
+            <div><label>Titre</label><input id="afTitle" value="${v.title}"></div>
+            <div><label>Émetteur</label><input id="afEmetteur" value="${v.emetteur || ""}"></div>
+            <div><label>Pays</label><input id="afPays" value="${v.pays || ""}"></div>
+            <div><label>Devise</label><input id="afDevise" value="${v.devise || "USD"}"></div>
+            <div><label>Montant</label><input id="afMontant" type="number" value="${v.montant || ""}"></div>
+            <div><label>Rendement %</label><input id="afRendement" type="number" step="0.1" value="${v.rendement ?? ""}"></div>
+            <div><label>Échéance</label><input id="afMaturite" value="${v.maturite || ""}"></div>
+            <div><label>Risque</label><input id="afRisque" value="${v.risque || ""}"></div>
+            <div><label>Token</label><input id="afToken" value="${v.token || ""}"></div>
+            <div><label>Minimum</label><input id="afMinimum" type="number" value="${v.minimum || ""}"></div>
+            <div><label>Vendeur</label><input id="afVendeur" value="${v.vendeur || ""}"></div>
+          </div>
+          <label>Documents (séparés par des ;)</label><input id="afDocs" value="${(v.documents || []).join("; ")}">
+          <label>Description</label><textarea id="afDesc" rows="3">${v.description || ""}</textarea>
+          <button class="btn btn-primary" style="margin-top:14px" onclick="saveAsset(${a ? a.id : "null"})">Enregistrer</button>
+        </div>`;
+      w.scrollIntoView({ behavior: "smooth" });
+    }
+    function closeForm() { $("assetFormWrap").innerHTML = ""; }
+    async function saveAsset(id) {
+      const body = {
+        id,
+        type: $("afType").value, statut: $("afStatut").value, title: $("afTitle").value,
+        verifie: $("afVerifie").value === "1",
+        emetteur: $("afEmetteur").value, pays: $("afPays").value, devise: $("afDevise").value,
+        montant: parseFloat($("afMontant").value) || null, rendement: parseFloat($("afRendement").value) || null,
+        maturite: $("afMaturite").value, risque: $("afRisque").value, token: $("afToken").value,
+        minimum: parseFloat($("afMinimum").value) || null, vendeur: $("afVendeur").value,
+        description: $("afDesc").value, documents: $("afDocs").value.split(";").map((x) => x.trim()).filter(Boolean)
+      };
+      await api("asset", id ? "PUT" : "POST", body);
+      closeForm(); loadAssets();
+    }
+    async function delAsset(id) {
+      if (!confirm("Supprimer cette offre ?")) return;
+      await api("asset", "DELETE", { id });
+      loadAssets();
+    }
+
+    async function renderSubmissions() {
+      const rows = await api("submissions");
+      $("tab-submissions").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Soumissions des vendeurs</h3></div>
+        <table class="adm"><thead><tr><th>ID</th><th>Type</th><th>Titre</th><th>Pays</th><th>Montant</th><th>Rend.</th><th>Dette</th><th>Statut</th><th>Actions</th></tr></thead>
+        <tbody>${rows.map((s) => `
+          <tr>
+            <td>${s.id}</td><td>${TYPES[s.type] || s.type}</td><td>${s.title}</td><td>${s.pays || "-"}</td>
+            <td>${s.montant ? s.montant.toLocaleString("fr-FR") : "-"} ${s.devise || ""}</td><td>${s.rendement ? s.rendement + "%" : "-"}</td>
+            <td>${s.type === "financement_dette" ? `<span class="badge ${s.debt_type || ''}" style="font-size:.65rem">${s.debt_type || "-"}</span>` : "-"}</td>
+            <td>${badgeStatut(s.statut)}</td>
+            <td>
+              ${s.statut === "en_attente" ? `<button class="btn btn-primary btn-sm" onclick="apprSub(${s.id})">Approuver</button> <button class="btn btn-ghost btn-sm" style="color:var(--red)" onclick="rejSub(${s.id})">Rejeter</button>` : "-"}
+            </td>
+          </tr>`).join("") || `<tr><td colspan="9" class="muted">Aucune soumission.</td></tr>`}</tbody></table>`;
+    }
+    async function apprSub(id) { await api("submission", "POST", { id, action: "approve" }); renderSubmissions(); }
+    async function rejSub(id) { await api("submission", "POST", { id, action: "reject" }); renderSubmissions(); }
+
+    async function renderSubscriptions() {
+      const rows = await api("subscriptions");
+      $("tab-subscriptions").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Abonnements & paiements</h3>
+          <p class="muted small">Vérifiez la réception du paiement, puis cliquez sur « Activer » pour débloquer l'accès du membre.</p>
+        </div>
+        <table class="adm"><thead><tr><th>Réf.</th><th>Membre</th><th>Plan</th><th>Montant</th><th>Moyen</th><th>Statut</th><th>Créée le</th><th>Actions</th></tr></thead>
+        <tbody>${rows.map((s) => `
+          <tr>
+            <td><b>${s.reference}</b></td>
+            <td>${s.user_name}<br><span class="muted small">${s.user_email}</span></td>
+            <td>${s.plan}</td>
+            <td>${s.montant} ${s.devise}</td>
+            <td class="muted small">${s.moyen || "-"}</td>
+            <td>${badgeStatut(s.statut)}</td>
+            <td class="small">${s.created_at}</td>
+            <td>
+              ${s.statut === "en_attente" ? `<button class="btn btn-primary btn-sm" onclick="setSub(${s.id},'activer')">Activer</button>` : ""}
+              ${s.statut === "actif" ? `<button class="btn btn-ghost btn-sm" style="color:var(--red)" onclick="setSub(${s.id},'desactiver')">Désactiver</button>` : ""}
+            </td>
+          </tr>`).join("") || `<tr><td colspan="8" class="muted">Aucun abonnement. Les souscriptions des membres apparaîtront ici.</td></tr>`}</tbody></table>`;
+    }
+    async function setSub(id, action) { await api("subscriptions", "POST", { id, action }); renderSubscriptions(); }
+
+    async function renderFees() {
+      const rows = await api("fees");
+      $("tab-fees").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Frais de mise en relation</h3>
+          <p class="muted small">Vérifiez la réception du paiement, puis cliquez sur « Activer » pour confirmer.</p>
+        </div>
+        <table class="adm"><thead><tr><th>Réf.</th><th>Membre</th><th>Montant</th><th>Moyen</th><th>Statut</th><th>Créée le</th><th>Actions</th></tr></thead>
+        <tbody>${rows.map((f) => `
+          <tr>
+            <td><b>${f.reference}</b></td>
+            <td>${f.user_name}<br><span class="muted small">${f.user_email}</span></td>
+            <td>${f.montant} ${f.devise}</td>
+            <td class="muted small">${f.moyen || "-"}</td>
+            <td>${badgeStatut(f.statut)}</td>
+            <td class="small">${f.created_at}</td>
+            <td>${f.statut === "en_attente" ? `<button class="btn btn-primary btn-sm" onclick="setFee(${f.id})">Activer</button>` : "-"}</td>
+          </tr>`).join("") || `<tr><td colspan="7" class="muted">Aucun frais.</td></tr>`}</tbody></table>`;
+    }
+    async function setFee(id) { await api("fees", "POST", { id, action: "activer" }); renderFees(); }
+
+    async function renderKyc() {
+      const rows = await api("kyc");
+      $("tab-kyc").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Vérifications d'identité (KYC)</h3></div>
+        <table class="adm"><thead><tr><th>ID</th><th>Nom</th><th>Email</th><th>Nom légal</th><th>Pays</th><th>Document</th><th>Statut</th><th>Actions</th></tr></thead>
+        <tbody>${rows.map((u) => `
+          <tr>
+            <td>${u.id}</td>
+            <td>${u.name}</td>
+            <td>${u.email}</td>
+            <td>${u.kyc_nom || "-"}</td>
+            <td>${u.kyc_pays || "-"}</td>
+            <td class="small">${u.kyc_document || "-"}</td>
+            <td>${badgeStatut(u.kyc_statut)}</td>
+            <td>
+              ${u.kyc_statut === "en_attente" ? `<button class="btn btn-primary btn-sm" onclick="kycOk(${u.id})">Valider</button> <button class="btn btn-ghost btn-sm" style="color:var(--red)" onclick="kycNo(${u.id})">Rejeter</button>` : "-"}
+            </td>
+          </tr>`).join("") || `<tr><td colspan="8" class="muted">Aucune demande KYC.</td></tr>`}</tbody></table>`;
+    }
+    async function kycOk(id) { await api("kyc", "POST", { id, action: "valider" }); renderKyc(); }
+    async function kycNo(id) { await api("kyc", "POST", { id, action: "rejeter" }); renderKyc(); }
+
+    async function renderCryptoLoansAdmin() {
+      const rows = await api("crypto-loans");
+      $("tab-cryptoloans").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Prêts contre crypto</h3>
+          <p class="muted small">Demandes de prêt avec collatéral crypto. Approuvez ou rejetez chaque demande.</p>
+        </div>
+        <table class="adm"><thead><tr><th>Réf.</th><th>Membre</th><th>Collatéral</th><th>Montant prêt</th><th>LTV</th><th>Durée</th><th>Taux</th><th>Wallet</th><th>Statut</th><th>Date</th><th>Actions</th></tr></thead>
+        <tbody>${rows.map((l) => `
+          <tr>
+            <td><b>${l.reference}</b></td>
+            <td>${l.user_name || "N/A"}<br><span class="muted small">${l.user_email || ""}</span></td>
+            <td><b>${l.collateral_amount} ${l.collateral_crypto}</b></td>
+            <td>${l.loan_amount ? l.loan_amount.toLocaleString("fr-FR") : "-"} ${l.loan_currency}</td>
+            <td>${l.ltv} %</td>
+            <td>${l.duration_months} mois</td>
+            <td>${l.taux_annuel} %</td>
+            <td class="small" style="font-family:Consolas">${l.wallet_address || "-"}</td>
+            <td>${badgeStatut(l.statut)}</td>
+            <td class="small">${l.created_at}</td>
+            <td>
+              ${l.statut === "en_attente" ? `<button class="btn btn-primary btn-sm" onclick="approveCryptoLoan(${l.id})">Approuver</button> <button class="btn btn-ghost btn-sm" style="color:var(--red)" onclick="rejectCryptoLoan(${l.id})">Rejeter</button>` : "-"}
+            </td>
+          </tr>`).join("") || `<tr><td colspan="11" class="muted">Aucune demande de prêt crypto.</td></tr>`}</tbody></table>`;
+    }
+    async function approveCryptoLoan(id) { await api("crypto-loans", "POST", { id, action: "approuver" }); renderCryptoLoansAdmin(); }
+    async function rejectCryptoLoan(id) { await api("crypto-loans", "POST", { id, action: "rejeter" }); renderCryptoLoansAdmin(); }
+
+    async function renderContacts() {
+      const rows = await api("contacts");
+      $("tab-contacts").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Demandes de contact</h3></div>
+        <table class="adm"><thead><tr><th>Date</th><th>Nom</th><th>Contact</th><th>Message</th><th></th></tr></thead>
+        <tbody>${rows.map((c) => `
+          <tr><td>${c.created_at}</td><td>${c.name}</td><td>${c.contact}</td><td>${c.message}</td><td><button class="btn btn-ghost btn-sm" style="color:var(--red)" onclick="delContact(${c.id})">Suppr.</button></td></tr>`).join("") || `<tr><td colspan="5" class="muted">Aucune demande.</td></tr>`}</tbody></table>`;
+    }
+    async function delContact(id) { await api("contact", "POST", { id }); renderContacts(); }
+
+    async function renderMsgList() {
+      const rows = await api("conversations");
+      $("tab-messages").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Messages membres</h3></div>
+        <table class="adm"><thead><tr><th>#</th><th>Membre</th><th>Sujet / Offre</th><th>Messages</th><th>En attente</th><th>Ouvert le</th><th></th></tr></thead>
+        <tbody>${rows.map((c) => `
+          <tr>
+            <td>${c.id}</td>
+            <td>${c.user_name}<br><span class="muted small">${c.user_email}</span></td>
+            <td>${c.subject || "Discussion"}${c.asset_title ? `<br><span class="muted small">${c.asset_title}</span>` : ""}</td>
+            <td>${c.nb}</td>
+            <td>${c.pending ? `<span class="badge-s b-attente">${c.pending} à répondre</span>` : "-"}</td>
+            <td class="small">${c.created_at}</td>
+            <td><button class="btn btn-primary btn-sm" onclick="renderMsgThread(${c.id})">Ouvrir</button></td>
+          </tr>`).join("") || `<tr><td colspan="7" class="muted">Aucune conversation.</td></tr>`}</tbody></table>`;
+    }
+
+    async function renderMsgThread(id) {
+      const msgs = await api("conversation?id=" + id);
+      const conv = await api("conversations").then((l) => l.find((c) => c.id === id) || {});
+      $("tab-messages").innerHTML = `
+        <div class="toolbar">
+          <h3 style="color:var(--accent)">Conversation #${id}</h3>
+          <button class="btn btn-ghost" onclick="renderMsgList()">← Retour</button>
+        </div>
+        <div class="edit-form" style="max-width:720px">
+          <p class="muted small">${conv.user_name || ""} (${conv.user_email || ""})${conv.asset_title ? ` — Offre : ${conv.asset_title}` : ""}</p>
+          <div id="adminThread" style="max-height:380px;overflow:auto;margin:16px 0;display:flex;flex-direction:column;gap:10px">
+            ${msgs.map((m) => `<div class="msg ${m.sender === "equipe" ? "ok" : ""}" style="align-self:${m.sender === "membre" ? "flex-start" : "flex-end"};max-width:80%">${m.body}<div class="small muted" style="margin-top:4px">${m.sender === "membre" ? "Membre" : "Vous"} · ${m.created_at}</div></div>`).join("") || `<p class="muted">Aucun message.</p>`}
+          </div>
+          <textarea id="admMsg" rows="2" style="width:100%" placeholder="Votre réponse..."></textarea>
+          <button class="btn btn-primary" style="margin-top:10px" onclick="replyMsg(${id})">Envoyer la réponse</button>
+        </div>`;
+      const t = $("adminThread");
+      if (t) t.scrollTop = t.scrollHeight;
+    }
+
+    async function replyMsg(id) {
+      const body = $("admMsg").value.trim();
+      if (!body) return;
+      await api("messages", "POST", { conversation_id: id, body });
+      renderMsgThread(id);
+    }
+
+    async function renderUsers() {
+      const rows = await api("users");
+      $("tab-users").innerHTML = `
+        <div class="toolbar"><h3 style="color:var(--accent)">Membres inscrits</h3></div>
+        <table class="adm"><thead><tr><th>ID</th><th>Nom</th><th>Email</th><th>Rôle</th><th>Inscription</th></tr></thead>
+        <tbody>${rows.map((u) => `<tr><td>${u.id}</td><td>${u.name}</td><td>${u.email}</td><td>${u.role}</td><td>${u.created_at}</td></tr>`).join("") || `<tr><td colspan="5" class="muted">Aucun membre.</td></tr>`}</tbody></table>`;
+    }
+
+    init();
+  </script>
+</body>
+</html>
