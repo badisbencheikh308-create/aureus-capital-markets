@@ -635,6 +635,11 @@ function getAssets(statut) {
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, "http://localhost");
   const p = url.pathname;
+  if (p === "/ping" || p === "/health" || p === "/healthz") {
+    res.writeHead(200, { "Content-Type": "application/json", "Cache-Control": "no-store" });
+    res.end(JSON.stringify({ ok: true, ts: Date.now(), service: "aureus-capital-markets" }));
+    return;
+  }
   const cookies = (req.headers.cookie || "").split(";").map((c) => c.trim()).filter(Boolean);
   const getCookie = (n) => { const c = cookies.find((x) => x.startsWith(n + "=")); return c ? c.slice(n.length + 1) : null; };
   const token = getCookie(COOKIE_NAME);
